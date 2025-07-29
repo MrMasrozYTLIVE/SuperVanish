@@ -19,13 +19,13 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.12.1</version>
                 <configuration>
-                    <source>17</source>
-                    <target>17</target>
+                    <source>21</source>
+                    <target>21</target>
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
-                            <version>1.18.30</version>
+                            <version>1.18.38</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
@@ -104,36 +104,23 @@
     <dependencies>
         <!--Paper API-->
         <dependency>
-            <groupId>io.papermc.paper</groupId>
-            <artifactId>paper-api</artifactId>
-            <version>1.20.1-R0.1-SNAPSHOT</version>
+            <groupId>dev.folia</groupId>
+            <artifactId>folia-api</artifactId>
+            <version>1.21.6-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <!--Lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.30</version>
+            <version>1.18.38</version>
             <scope>provided</scope>
-        </dependency>
-        <!--EssentialsX API-->
-        <dependency>
-            <groupId>net.essentialsx</groupId>
-            <artifactId>EssentialsX</artifactId>
-            <version>2.19.0</version>
-            <scope>provided</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.bstats</groupId>
-                    <artifactId>bstats-bukkit</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <!--ProtocolLib-->
         <dependency>
             <groupId>com.comphenix.protocol</groupId>
             <artifactId>ProtocolLib</artifactId>
-            <version>4.8.0</version>
+            <version>5.3.0</version>
             <scope>provided</scope>
         </dependency>
         <!--Vault API-->
@@ -153,13 +140,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!--Citizens API-->
-        <dependency>
-            <groupId>net.citizensnpcs</groupId>
-            <artifactId>citizensapi</artifactId>
-            <version>2.0.28-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
         <!--TrailGUI-->
         <dependency>
             <groupId>com.github.SinnDevelopment</groupId>
@@ -167,31 +147,11 @@
             <version>37659dda03</version>
             <scope>provided</scope>
         </dependency>
-        <!--Dynmap-->
-        <dependency>
-            <groupId>us.dynmap</groupId>
-            <artifactId>dynmap-api</artifactId>
-            <version>3.1</version>
-            <scope>provided</scope>
-        </dependency>
-        <!--MVdWPlaceholderAPI-->
-        <dependency>
-            <groupId>be.maximvdw</groupId>
-            <artifactId>MVdWPlaceholderAPI</artifactId>
-            <version>3.1.1-SNAPSHOT</version>
-            <scope>provided</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.spigotmc</groupId>
-                    <artifactId>spigot</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
         <!--PlaceholderAPI-->
         <dependency>
             <groupId>me.clip</groupId>
             <artifactId>placeholderapi</artifactId>
-            <version>2.10.10</version>
+            <version>2.11.6</version>
             <scope>provided</scope>
         </dependency>
         <!--BrigadierAPI-->
@@ -205,25 +165,25 @@
         <dependency>
             <groupId>io.github.projectunified</groupId>
             <artifactId>minelib-scheduler-entity</artifactId>
-            <version>1.1.2</version>
+            <version>1.2.5</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>io.github.projectunified</groupId>
             <artifactId>minelib-scheduler-global</artifactId>
-            <version>1.1.2</version>
+            <version>1.2.5</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>io.github.projectunified</groupId>
             <artifactId>minelib-scheduler-async</artifactId>
-            <version>1.1.2</version>
+            <version>1.2.5</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>io.github.projectunified</groupId>
             <artifactId>minelib-scheduler-canceller</artifactId>
-            <version>1.1.2</version>
+            <version>1.2.5</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>

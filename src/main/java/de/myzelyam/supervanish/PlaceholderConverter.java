@@ -8,9 +8,6 @@
 
 package de.myzelyam.supervanish;
 
-import com.earth2me.essentials.Essentials;
-import com.earth2me.essentials.User;
-
 import de.myzelyam.supervanish.hooks.PlaceholderAPIHook;
 import de.myzelyam.supervanish.utils.Validation;
 
@@ -28,8 +25,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import be.maximvdw.placeholderapi.PlaceholderAPI;
 
 public class PlaceholderConverter {
 
@@ -66,17 +61,6 @@ public class PlaceholderConverter {
                     && !(unspecifiedPlayer instanceof Player)) {
                 // offline player
                 OfflinePlayer specifiedPlayer = (OfflinePlayer) unspecifiedPlayer;
-                // MVdWPlaceholderAPI
-                if (Bukkit.getPluginManager().isPluginEnabled("MVdWPlaceholderAPI")
-                        && plugin.getSettings().getBoolean("HookOptions.EnableMVdWPlaceholderAPIHook", true)) {
-                    String replaced = PlaceholderAPI.replacePlaceholders(specifiedPlayer, msg);
-                    msg = replaced == null ? msg : replaced;
-                }
-                // replace essentials nick names
-                if (Bukkit.getPluginManager()
-                        .getPlugin("Essentials") != null) {
-                    msg = msg.replace("%nick%", specifiedPlayer.getName());
-                }
                 // replace general variables
                 msg = msg.replace("%d%", specifiedPlayer.getName())
                         .replace("%p%", specifiedPlayer.getName())
@@ -95,21 +79,6 @@ public class PlaceholderConverter {
                     String replaced = PlaceholderAPIHook.translatePlaceholders(msg, specifiedPlayer);
                     //noinspection ConstantConditions
                     msg = replaced == null ? msg : replaced;
-                }
-                // MVdWPlaceholderAPI
-                if (Bukkit.getPluginManager().isPluginEnabled("MVdWPlaceholderAPI")
-                        && plugin.getSettings().getBoolean("HookOptions.EnableMVdWPlaceholderAPIHook", true)) {
-                    String replaced = PlaceholderAPI.replacePlaceholders(specifiedPlayer, msg);
-                    msg = replaced == null ? msg : replaced;
-                }
-                // replace essentials nick names
-                if (Bukkit.getPluginManager().getPlugin("Essentials") != null) {
-                    Essentials ess = (Essentials) Bukkit.getServer()
-                            .getPluginManager().getPlugin("Essentials");
-                    User u = ess.getUser(specifiedPlayer);
-                    if (u != null)
-                        if (u.getNickname() != null)
-                            msg = msg.replace("%nick%", u.getNickname());
                 }
                 // replace vault info
                 if (Bukkit.getPluginManager().getPlugin("Vault") != null) {

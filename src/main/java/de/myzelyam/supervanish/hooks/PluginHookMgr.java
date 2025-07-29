@@ -27,12 +27,8 @@ public class PluginHookMgr implements Listener {
 
     private static final Map<String, Class<? extends PluginHook>> REGISTERED_HOOKS
             = new HashMap<String, Class<? extends PluginHook>>() {{
-        put("Essentials", EssentialsHook.class);
-        put("Citizens", CitizensHook.class);
         put("PlaceholderAPI", PlaceholderAPIHook.class);
-        put("dynmap", DynmapHook.class);
         put("TrailGUI", TrailGUIHook.class);
-        put("MVdWPlaceholderAPI", MVdWPlaceholderAPIHook.class);
     }};
     private final SuperVanish plugin;
     private Set<PluginHook> activeHooks = new HashSet<>();

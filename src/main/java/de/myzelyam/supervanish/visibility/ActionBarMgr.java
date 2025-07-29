@@ -75,7 +75,7 @@ public class ActionBarMgr {
                 chatMsg.getBytes().write(0, (byte) 2);
             try {
                 ProtocolLibrary.getProtocolManager().sendServerPacket(p, chatMsg);
-            } catch (InvocationTargetException e) {
+            } catch (Exception e) {
                 throw new RuntimeException("Cannot send packet " + chatMsg, e);
             }
         }
