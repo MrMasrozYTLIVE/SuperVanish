@@ -16,7 +16,7 @@ import de.myzelyam.supervanish.SuperVanish;
 import de.myzelyam.supervanish.utils.Validation;
 import de.myzelyam.supervanish.visibility.hiders.PlayerHider;
 import io.github.projectunified.minelib.scheduler.common.util.Platform;
-import io.github.projectunified.minelib.scheduler.global.GlobalScheduler;
+import io.github.projectunified.minelib.scheduler.entity.EntityScheduler;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -109,16 +109,11 @@ public class VisibilityChanger {
     }
 
     private void stopTarget(Creature mob, Player player) {
-        Runnable runnable = () -> {
+        EntityScheduler.get(plugin, mob).run(() -> {
             if (mob.getTarget() != null && mob.getTarget().getUniqueId().equals(player.getUniqueId())) {
                 mob.setTarget(null);
             }
-        };
-        if (Platform.FOLIA.isPlatform()) {
-            GlobalScheduler.get(plugin).run(runnable);
-        } else {
-            runnable.run();
-        }
+        });
     }
 
     public void showPlayer(final Player player, final String showerName, boolean silent) {
